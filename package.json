@@ -1,25 +1,21 @@
 {
-  "name": "TicTac2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "myapp",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "build":"./node_modules/.bin/webpack"
+    "devstart": "babel-node .src/bin/www",
+    "start": "npm run build && node ./build/bin/www",
+    "build": "npm run clean && npm run babel-build",
+    "babel-build": "babel -d ./build ./src -s",
+    "clean": "rm -rf ./build && mkdir ./build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.12.13",
-    "@babel/preset-react": "^7.12.13",
-    "babel-loader": "^8.2.2",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.7",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
   }
 }
